@@ -1,8 +1,29 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-
+import { cutUrl } from '../utils/stringUtils'
 
 class About extends Component {
+
+    componentDidMount(){
+        //导航栏变色
+        let originalUrl  = window.location.href;
+        let getMyRouter = cutUrl(originalUrl);
+
+        if( getMyRouter == 'About'){
+            $('#nav-portfolio-menu-id').attr(
+                'class','nav-portfolio-menu'
+            );
+            $('#nav-about-menu-id').attr(
+                'class','nav-about-menu-active'
+            );
+            $('#nav-media-menu-id').attr(
+                'class','nav-media-menu'
+            );
+        }else {
+            console.log('获取地址栏错误');
+        }
+    }
+
     render() {
         return (
             <div className="ab-box">

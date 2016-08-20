@@ -14,17 +14,17 @@ class Nav extends Component {
                     <div className="nav-right">
                         <div>
                             <Link to="/Media">
-                                <span>Media</span>
+                                <span id="nav-media-menu-id" className="nav-media-menu">Media</span>
                             </Link>
                         </div>
                         <div>
                             <Link to="/About">
-                                <span>About</span>
+                                <span id="nav-about-menu-id" className="nav-about-menu">About</span>
                             </Link>
                         </div>
                         <div>
                             <Link to="/">
-                                <span>Portfolio</span>
+                                <span id="nav-portfolio-menu-id" className="nav-portfolio-menu">Portfolio</span>
                             </Link>
                         </div>
                     </div>
