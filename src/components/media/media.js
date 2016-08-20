@@ -108,11 +108,11 @@ class Media extends Component {
                     <div className="md-link-btn">
                         Mailto: cellier@mail.com
                     </div>
-                    <div className="md-">
+                    <div className="md-box-three-title">
                         Featured Project
                     </div>
-                    <div>
-                        NaoNao real girl morning call app.
+                    <div className="md-box-three-inner">
+                        NaoNao real girl morning call app.<br/>
                         →
                     </div>
                 </div>
