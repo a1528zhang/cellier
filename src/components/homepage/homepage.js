@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import { cutUrl} from '../utils/stringUtils'
+import { cutUrl , underScroll } from '../utils/Utils'
+import { HP_DATA } from '../data/hpData'
 
 class HomePage extends Component {
 
@@ -34,9 +35,50 @@ class HomePage extends Component {
             opacity: '0.3',
             marginLeft: '0px'
         }, "500");
+
+        //主页内容载入动画
+        let HpDataList = HP_DATA;
+        this.HpImgBoxAnimate(HpDataList);
+
+        //到底部事件监听
+        window.addEventListener('scroll',
+            ()=>{underScroll(()=>{this.hpBottomPart()})}
+        );
+
+    }
+
+    hpBottomPart() {
+        $(".hp-resume").animate({
+            opacity: '1'
+        }, "500");
+    }
+
+
+    HpImgBoxAnimate(dataId) {
+        dataId.map(function (data) {
+                let animateList = data.workId;
+                return (
+                    $("#hp-img-box" + animateList).delay(200 + animateList * 100).animate({
+                        opacity: '1'
+                    }, "500")
+                )
+            }
+        )
     }
 
     render() {
+        //列表渲染
+        let hpDatalist = HP_DATA;
+        let doHpDataList = hpDatalist.map(function (data) {
+            return (
+                <div className="hp-img-box" key={data.workId} id={"hp-img-box"+data.workId}>
+                    <Link to="/DetailsPage">
+                        <img src={data.workImg}/>
+                    </Link>
+                </div>
+            )
+        })
+
         return (
             <div className="hp-box">
                 <div className="hp-text">
@@ -48,26 +90,7 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className="hp-img">
-                    <div className="hp-img-box">
-                        <Link to="/DetailsPage">
-                            <img src="http://obhsihr83.bkt.clouddn.com/img1.png"/>
-                        </Link>
-                    </div>
-                    <div className="hp-img-box">
-                        <img src="http://obhsihr83.bkt.clouddn.com/img1.png"/>
-                    </div>
-                    <div className="hp-img-box">
-                        <img src="http://obhsihr83.bkt.clouddn.com/img1.png"/>
-                    </div>
-                    <div className="hp-img-box">
-                        <img src="http://obhsihr83.bkt.clouddn.com/img1.png"/>
-                    </div>
-                    <div className="hp-img-box">
-                        <img src="http://obhsihr83.bkt.clouddn.com/img1.png"/>
-                    </div>
-                    <div className="hp-img-box">
-                        <img src="http://obhsihr83.bkt.clouddn.com/img1.png"/>
-                    </div>
+                    { doHpDataList }
                     <div className="main-clear-both"></div>
                 </div>
                 <div className="hp-resume">

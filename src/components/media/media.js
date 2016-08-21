@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { cutUrl } from '../utils/stringUtils'
+import { cutUrl } from '../utils/Utils'
 
 class Media extends Component {
 
@@ -21,7 +21,34 @@ class Media extends Component {
         }else {
             console.log('获取地址栏错误');
         }
+
+        $(".md-box-title").animate({
+            opacity: '1',
+            paddingLeft: '0px'
+        }, "500");
+        $(".md-box-text").delay(200).animate({
+            opacity: '0.3',
+            paddingLeft: '0px'
+        }, "500");
+        $(".md-box-two").delay(300).animate({
+            opacity: '1',
+            paddingLeft: '0px'
+        }, "500");
+        $(".md-link-btn").delay(400).animate({
+            opacity: '1',
+            paddingLeft: '0px'
+        }, "500");
+        $(".md-box-three-title").delay(400).animate({
+            opacity: '0.3',
+            paddingLeft: '0px'
+        }, "500");
+        $(".md-box-three-inner").delay(500).animate({
+            opacity: '1',
+            paddingLeft: '0px'
+        }, "500");
+
     }
+
 
     render() {
         return (
@@ -126,16 +153,16 @@ class Media extends Component {
                         </div>
                     </div>
                     <div className="main-clear-both"></div>
-                    <div className="md-link-btn">
-                        Mailto: cellier@mail.com
-                    </div>
-                    <div className="md-box-three-title">
-                        Featured Project
-                    </div>
-                    <div className="md-box-three-inner">
-                        NaoNao real girl morning call app.<br/>
-                        →
-                    </div>
+                </div>
+                <div className="md-link-btn">
+                    Mailto: cellier@mail.com
+                </div>
+                <div className="md-box-three-title">
+                    Featured Project
+                </div>
+                <div className="md-box-three-inner">
+                    NaoNao real girl morning call app.<br/>
+                    →
                 </div>
             </div>
         )

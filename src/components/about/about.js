@@ -1,27 +1,71 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import { cutUrl } from '../utils/stringUtils'
+import { cutUrl ,underScroll } from '../utils/Utils'
 
 class About extends Component {
 
-    componentDidMount(){
+    componentDidMount() {
         //导航栏变色
-        let originalUrl  = window.location.href;
+        let originalUrl = window.location.href;
         let getMyRouter = cutUrl(originalUrl);
 
-        if( getMyRouter == 'About'){
+        if (getMyRouter == 'About') {
             $('#nav-portfolio-menu-id').attr(
-                'class','nav-portfolio-menu'
+                'class', 'nav-portfolio-menu'
             );
             $('#nav-about-menu-id').attr(
-                'class','nav-about-menu-active'
+                'class', 'nav-about-menu-active'
             );
             $('#nav-media-menu-id').attr(
-                'class','nav-media-menu'
+                'class', 'nav-media-menu'
             );
-        }else {
+        } else {
             console.log('获取地址栏错误');
         }
+
+        //载入动画
+        $(".ab-part-one-name").animate({
+            opacity: '1',
+            paddingLeft: '0px'
+        }, "500");
+        $(".ab-part-right-title").delay(200).animate({
+            opacity: '1'
+        }, "500");
+        $(".ab-part-right-inner").delay(300).animate({
+            opacity: '0.3'
+        }, "500");
+        $(".ab-part-one-text").delay(200).animate({
+            opacity: '0.3',
+            paddingLeft: '0px'
+        }, "500");
+        $(".ab-part-two").delay(300).animate({
+            opacity: '1'
+        }, "500");
+        $(".ab-part-three").delay(400).animate({
+            opacity: '1'
+        }, "500");
+        $(".ab-part-four").delay(500).animate({
+            opacity: '1'
+        }, "500");
+        $(".ab-part-five").delay(600).animate({
+            opacity: '1'
+        }, "500");
+        $(".ab-part-six").delay(700).animate({
+            opacity: '1'
+        }, "500");
+
+        //监听是否到底部
+        window.addEventListener('scroll', ()=> {
+            underScroll(()=> {
+                this.abBottomPart()
+            })
+        });
+    }
+
+    abBottomPart() {
+        $(".ab-part-seven").animate({
+            opacity:'1'
+        },"500");
     }
 
     render() {
@@ -109,7 +153,7 @@ class About extends Component {
                         Education
                     </div>
                     <div className="ab-part-five-inner">
-                        Harbin Engineering University (HEU)    2009-2014
+                        Harbin Engineering University (HEU) 2009-2014
                     </div>
                 </div>
                 <div className="ab-part-six">
@@ -130,7 +174,6 @@ class About extends Component {
         )
     }
 }
-
 
 
 export default About;
