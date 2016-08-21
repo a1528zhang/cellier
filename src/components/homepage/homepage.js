@@ -4,24 +4,36 @@ import { cutUrl} from '../utils/stringUtils'
 
 class HomePage extends Component {
 
-    componentDidMount(){
+
+    componentDidMount() {
         //导航栏变色
-        let originalUrl  = window.location.href;
+        let originalUrl = window.location.href;
         let getMyRouter = cutUrl(originalUrl);
 
-        if( getMyRouter == ''){
+        if (getMyRouter == '') {
             $('#nav-portfolio-menu-id').attr(
-                'class','nav-portfolio-menu-active'
+                'class', 'nav-portfolio-menu-active'
             );
             $('#nav-about-menu-id').attr(
-                'class','nav-about-menu'
+                'class', 'nav-about-menu'
             );
             $('#nav-media-menu-id').attr(
-                'class','nav-media-menu'
+                'class', 'nav-media-menu'
             );
-        }else {
+        } else {
             console.log('获取地址栏错误');
         }
+
+
+        //载入动画
+        $(".hp-text-title").animate({
+            opacity: '1',
+            marginLeft: '0px'
+        }, "500");
+        $(".hp-text-inner").delay(200).animate({
+            opacity: '0.3',
+            marginLeft: '0px'
+        }, "500");
     }
 
     render() {
@@ -30,7 +42,7 @@ class HomePage extends Component {
                 <div className="hp-text">
                     <div className="hp-text-title">Portfolio of cellier.</div>
                     <div className="hp-text-inner">
-                        I’m a self-taught  product designer who's been crafting websites &<br/>
+                        I’m a self-taught product designer who's been crafting websites &<br/>
                         apps since 2015.Now, designs products, user experience, interactions<br/>
                         and brands.
                     </div>
@@ -65,7 +77,6 @@ class HomePage extends Component {
         )
     }
 }
-
 
 
 export default HomePage;

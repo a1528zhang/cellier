@@ -7,17 +7,33 @@
   margin-top: 80px;
 }
 
+.begin-duration {
+  transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s; /* Firefox 4 */
+  -webkit-transition-duration: 0.5s; /* Safari 和 Chrome */
+  -o-transition-duration: 0.5s; /* Opera */
+  transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+}
+
 .hp-text-title{
   font-size: 42px;
   height: 80px;
   line-height: 80px;
+  margin-left: 10px;
+  opacity: 0;
 }
+
+
 
 .hp-text-inner{
   font-size: 14px;
   line-height: 20px;
   color: @main-color;
-  opacity: @main-color-opacity;
+  margin-left: 10px;
+  opacity: 0;
 }
 
 .hp-img {
